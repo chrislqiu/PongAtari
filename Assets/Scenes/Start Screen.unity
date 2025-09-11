@@ -584,7 +584,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: COUCH MULTIPLAYER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5f6a62d38818dd34a8299e982421282d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 20745c0e17cda40be894fbdc9ac35846, type: 2}
   m_sharedMaterial: {fileID: 2225915014673426115, guid: 20745c0e17cda40be894fbdc9ac35846, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1224,7 +1224,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: SINGLE PLAYER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5f6a62d38818dd34a8299e982421282d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 20745c0e17cda40be894fbdc9ac35846, type: 2}
   m_sharedMaterial: {fileID: 2225915014673426115, guid: 20745c0e17cda40be894fbdc9ac35846, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
