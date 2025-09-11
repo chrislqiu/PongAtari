@@ -7,4 +7,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
     }
+
+    public void HighScores()
+    {
+        SceneManager.LoadScene("Scores");
+    }
 }
