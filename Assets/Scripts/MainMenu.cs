@@ -1,13 +1,15 @@
+using System.Collections;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
     public Canvas targetCanvas;
+    public SceneChanger sceneChanger;
     private Button[] menuButtons;
+    private float sceneDelay = 0.5f;
 
     void Start()
     {
@@ -50,19 +52,25 @@ public class MainMenu : MonoBehaviour
         return Regex.Replace(title, @"^\s*>\s*(.*?)\s*<\s*$", "$1");
     }
 
+    private IEnumerator LoadSceneAfterDelay(string sceneName)
+    {
+        yield return new WaitForSeconds(sceneDelay);
+        sceneChanger.FadeToLevel(sceneName);
+    }
+
     public void NewGame()
     {
-        SceneManager.LoadScene("Game");
+        StartCoroutine(LoadSceneAfterDelay("Game"));
     }
 
     public void HighScores()
     {
-        SceneManager.LoadScene("Scores");
+        StartCoroutine(LoadSceneAfterDelay("Scores"));
     }
 
     public void Credits()
     {
-        SceneManager.LoadScene("Credits");
+        StartCoroutine(LoadSceneAfterDelay("Credits"));
     }
 
     public void Quit()
