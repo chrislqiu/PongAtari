@@ -8,8 +8,8 @@ public class MainMenu : MonoBehaviour
 {
     public Canvas targetCanvas;
     public SceneChanger sceneChanger;
+    [SerializeField] float sceneDelay = 0.5f;
     private Button[] menuButtons;
-    private float sceneDelay = 0.5f;
 
     void Start()
     {
@@ -27,6 +27,8 @@ public class MainMenu : MonoBehaviour
             Debug.LogError("Target Canvas is not assigned. Please assign it in the Inspector.");
         }
     }
+
+    /* ------------------------------------- Button Behavior ------------------------------------- */
 
     void OnButtonClick(Button button)
     {
@@ -52,26 +54,19 @@ public class MainMenu : MonoBehaviour
         return Regex.Replace(title, @"^\s*>\s*(.*?)\s*<\s*$", "$1");
     }
 
+    /* -------------------------------------- Scene Changes -------------------------------------- */
+
     private IEnumerator LoadSceneAfterDelay(string sceneName)
     {
         yield return new WaitForSeconds(sceneDelay);
         sceneChanger.FadeToLevel(sceneName);
     }
 
-    public void NewGame()
-    {
-        StartCoroutine(LoadSceneAfterDelay("Game"));
-    }
+    public void NewGame() => StartCoroutine(LoadSceneAfterDelay("Game"));
 
-    public void HighScores()
-    {
-        StartCoroutine(LoadSceneAfterDelay("Scores"));
-    }
+    public void HighScores() => StartCoroutine(LoadSceneAfterDelay("Scores"));
 
-    public void Credits()
-    {
-        StartCoroutine(LoadSceneAfterDelay("Credits"));
-    }
+    public void Credits() => StartCoroutine(LoadSceneAfterDelay("Credits"));
 
     public void Quit()
     {

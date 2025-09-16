@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    public Animator animator;
+    [SerializeField] Animator animator;
     private string sceneToLoad;
 
     public void FadeToLevel(string sceneName)
