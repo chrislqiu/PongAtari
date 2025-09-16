@@ -2,6 +2,7 @@ using System.Collections;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
@@ -10,7 +11,6 @@ public class MainMenu : MonoBehaviour
     public SceneChanger sceneChanger;
     [SerializeField] float sceneDelay = 0.5f;
     private Button[] menuButtons;
-
     void Start()
     {
         if (targetCanvas != null)
@@ -19,7 +19,22 @@ public class MainMenu : MonoBehaviour
 
             foreach (Button button in menuButtons)
             {
+                // Add click listener
                 button.onClick.AddListener(() => OnButtonClick(button));
+
+                // Add pointer event
+                EventTrigger trigger = button.gameObject.AddComponent<EventTrigger>();
+
+                var entry = new EventTrigger.Entry
+                {
+                    eventID = EventTriggerType.PointerEnter
+                };
+                entry.callback.AddListener((data) =>
+                {
+                    EventSystem.current.SetSelectedGameObject(button.gameObject);
+                });
+
+                trigger.triggers.Add(entry);
             }
         }
         else
@@ -48,7 +63,6 @@ public class MainMenu : MonoBehaviour
     {
         return $"> {StripArrows(title)} <";
     }
-
     string StripArrows(string title)
     {
         return Regex.Replace(title, @"^\s*>\s*(.*?)\s*<\s*$", "$1");
@@ -72,7 +86,7 @@ public class MainMenu : MonoBehaviour
     {
 #if UNITY_EDITOR
         // Application.Quit() does not work in the editor so
-        // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
+        // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game 
         UnityEditor.EditorApplication.isPlaying = false;
 #else
             Application.Quit();
