@@ -586,7 +586,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &325980042
 RectTransform:
@@ -1178,6 +1178,7 @@ GameObject:
   - component: {fileID: 1095937442}
   - component: {fileID: 1095937441}
   - component: {fileID: 1095937446}
+  - component: {fileID: 1095937447}
   m_Layer: 5
   m_Name: ScoreCanvas
   m_TagString: Untagged
@@ -1246,7 +1247,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1095937444
 RectTransform:
@@ -1262,7 +1263,7 @@ RectTransform:
   m_Children:
   - {fileID: 259782544}
   - {fileID: 2100810903}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2084008705}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1277,6 +1278,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1095937440}
   m_CullTransparentMesh: 1
+--- !u!114 &1095937447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095937440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2bd00f8873e4ec1b16a441db7f3f1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  MenuPanel: {fileID: 1886475502}
 --- !u!1 &1308937503
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,7 +1697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0cbd087d56c424b956084df7779b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuOptionHover
-  targetCanvas: {fileID: 325980041}
+  TargetCanvas: {fileID: 325980041}
   MenuPanel: {fileID: 1886475502}
 --- !u!1 &1974754716
 GameObject:
@@ -2142,6 +2156,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1095937444}
   - {fileID: 1974754718}
   - {fileID: 1420557682}
   - {fileID: 1723679796}
@@ -2191,6 +2206,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 975108557}
   - {fileID: 2084008705}
-  - {fileID: 1095937444}
   - {fileID: 325980042}
   - {fileID: 2052756006}

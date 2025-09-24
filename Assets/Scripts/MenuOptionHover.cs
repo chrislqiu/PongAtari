@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MenuOptionHover : MonoBehaviour
 {
-    public Canvas targetCanvas;
+    public Canvas TargetCanvas;
     public GameObject MenuPanel;
     private Button[] menuButtons;
 
@@ -18,9 +18,9 @@ public class MenuOptionHover : MonoBehaviour
             MenuPanel.SetActive(true);
         }
 
-        if (targetCanvas != null)
+        if (TargetCanvas != null)
         {
-            menuButtons = targetCanvas.GetComponentsInChildren<Button>();
+            menuButtons = TargetCanvas.GetComponentsInChildren<Button>();
 
             foreach (Button button in menuButtons)
             {
