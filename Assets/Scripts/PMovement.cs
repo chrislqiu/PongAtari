@@ -6,6 +6,9 @@ public class P1Movement : MonoBehaviour
     [SerializeField] private bool isAI;
     [SerializeField] private GameObject ball;
 
+    public KeyCode moveUp = KeyCode.W;
+    public KeyCode moveDown = KeyCode.S;
+
     private Rigidbody2D rb;
     private Vector2 playerMove;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -13,6 +16,12 @@ public class P1Movement : MonoBehaviour
     {
         // gets it off our object
         rb = GetComponent<Rigidbody2D>();
+
+        //checks if user pressed single or multiplayer
+        if (gameObject.name == "P2 Racket")
+        {
+            isAI = GameManager.Instance.isAI;
+        }
     }
 
     // Update is called once per frame
@@ -31,7 +40,7 @@ public class P1Movement : MonoBehaviour
     private void PlayerControl()
     {
         // gets players (0, y) bc we dont want it to move on x axis
-        playerMove = new Vector2(0, Input.GetAxisRaw("Vertical"));
+        //playerMove = new Vector2(0, Input.GetAxisRaw("Vertical"));
 
         /*
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
@@ -41,6 +50,12 @@ public class P1Movement : MonoBehaviour
         else
             playerMove = Vector2.zero;
         */
+        playerMove = Vector2.zero;
+
+        if (Input.GetKey(moveUp))
+            playerMove = new Vector2(0, 1);
+        else if (Input.GetKey(moveDown))
+            playerMove = new Vector2(0, -1);
 
     }
 
@@ -65,5 +80,10 @@ public class P1Movement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = playerMove * movementSpeed;
+    }
+
+    public void SetAI(bool value)
+    {
+        isAI = value;
     }
 }

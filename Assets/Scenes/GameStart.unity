@@ -944,8 +944,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::P1Movement
   movementSpeed: 7.5
-  isAI: 1
+  isAI: 0
   ball: {fileID: 596681991}
+  moveUp: 273
+  moveDown: 274
 --- !u!50 &940274175
 Rigidbody2D:
   serializedVersion: 5
@@ -1534,9 +1536,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17da0c01dfe141441bc520608a8c29c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::P1Movement
-  movementSpeed: 15
+  movementSpeed: 7.5
   isAI: 0
   ball: {fileID: 596681991}
+  moveUp: 119
+  moveDown: 115
 --- !u!61 &1880962531
 BoxCollider2D:
   m_ObjectHideFlags: 0
