@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
@@ -8,8 +9,8 @@ public class MenuOptionHover : MonoBehaviour
 {
     public Canvas TargetCanvas;
     public GameObject MenuPanel;
+    [SerializeField] float panelDelay = 1f;
     private Button[] menuButtons;
-
 
     void Start()
     {
@@ -63,6 +64,12 @@ public class MenuOptionHover : MonoBehaviour
         TextMeshProUGUI buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
         buttonText.text = AddArrows(buttonText.text);
 
+        StartCoroutine(LoadPanelAfterDelay());
+    }
+
+    private IEnumerator LoadPanelAfterDelay()
+    {
+        yield return new WaitForSeconds(panelDelay);
         MenuPanel.SetActive(false);
     }
 
