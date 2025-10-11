@@ -1,6 +1,8 @@
 using System.ComponentModel;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class BallMovement : MonoBehaviour
 {
@@ -105,10 +107,18 @@ public class BallMovement : MonoBehaviour
     private void EndGame(string msg)
     {
         rb.velocity = Vector2.zero; // Stop the ball
+        rb.simulated = false; // stops the ball completely
         winText.text = msg;
         winPanel.SetActive(true);
         winText.gameObject.SetActive(true); // Show the message
 
-        Time.timeScale = 0f; // Pause the game
+        StartCoroutine(ReturnToMainMenu());
     }
+
+    private IEnumerator ReturnToMainMenu()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("Main Menu");
+    }
+
 }
