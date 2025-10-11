@@ -8,6 +8,8 @@ public class BallMovement : MonoBehaviour
     [SerializeField] private float speedIncrease = .25f;
     [SerializeField] private TMP_Text P1Score;
     [SerializeField] private TMP_Text P2Score;
+    [SerializeField] private TMP_Text winText;
+    [SerializeField] private GameObject winPanel;
 
     private int hitCounter;
     private Rigidbody2D rb;
@@ -86,5 +88,27 @@ public class BallMovement : MonoBehaviour
             resetBall();
             P2Score.text = (int.Parse(P2Score.text) + 1).ToString();
         }
+
+        int p1 = int.Parse(P1Score.text);
+        int p2 = int.Parse(P2Score.text);
+
+        if (p1 >= 15)
+        {
+            EndGame("Player 1 Wins!");
+        }
+        else if (p2 >= 15)
+        {
+            EndGame("Player 2 Wins!");
+        }
+    }
+
+    private void EndGame(string msg)
+    {
+        rb.velocity = Vector2.zero; // Stop the ball
+        winText.text = msg;
+        winPanel.SetActive(true);
+        winText.gameObject.SetActive(true); // Show the message
+
+        Time.timeScale = 0f; // Pause the game
     }
 }
