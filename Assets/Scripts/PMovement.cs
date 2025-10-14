@@ -79,7 +79,7 @@ public class P1Movement : MonoBehaviour
     // important to write it as it is "FixedUpdate". This happens an even amount of time over the course of a second. This way no matter the fps of the user, the physics will be consistent and not dependent on the frame rate
     private void FixedUpdate()
     {
-        rb.velocity = playerMove * movementSpeed;
+        rb.linearVelocity = playerMove * movementSpeed;
     }
 
     public void SetAI(bool value)

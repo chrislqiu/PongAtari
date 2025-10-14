@@ -62,7 +62,7 @@ public class MainMenu : MonoBehaviour
         sceneChanger.FadeToLevel(sceneName);
     }
 
-    public void NewGame() => StartCoroutine(LoadSceneAfterDelay("Game"));
+    public void NewGame() => StartCoroutine(LoadSceneAfterDelay("SingleMulti"));
 
     public void HighScores() => StartCoroutine(LoadSceneAfterDelay("Scores"));
 

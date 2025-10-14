@@ -67,12 +67,6 @@ public class MenuOptionHover : MonoBehaviour
         StartCoroutine(LoadPanelAfterDelay());
     }
 
-    private IEnumerator LoadPanelAfterDelay()
-    {
-        yield return new WaitForSeconds(panelDelay);
-        MenuPanel.SetActive(false);
-    }
-
     string AddArrows(string title)
     {
         return $"> {StripArrows(title)} <";
@@ -80,6 +74,14 @@ public class MenuOptionHover : MonoBehaviour
     string StripArrows(string title)
     {
         return Regex.Replace(title, @"^\s*>\s*(.*?)\s*<\s*$", "$1");
+    }
+
+    /* -------------------------------------- Scene Changes -------------------------------------- */
+
+    private IEnumerator LoadPanelAfterDelay()
+    {
+        yield return new WaitForSeconds(panelDelay);
+        MenuPanel.SetActive(false);
     }
 
 }

@@ -21,17 +21,17 @@ public class BallMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = Vector2.ClampMagnitude(rb.velocity, initialSpeed + (speedIncrease * hitCounter));
+        rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, initialSpeed + (speedIncrease * hitCounter));
     }
 
     private void StartBall()
     {
-        rb.velocity = new Vector2(-1, 0) * (initialSpeed + (speedIncrease * hitCounter));
+        rb.linearVelocity = new Vector2(-1, 0) * (initialSpeed + (speedIncrease * hitCounter));
     }
 
     private void resetBall()
     {
-        rb.velocity = new Vector2(0, 0);
+        rb.linearVelocity = new Vector2(0, 0);
         transform.position = new Vector2(0, 0);
         hitCounter = 0;
         // calls startBall after two secs
@@ -62,7 +62,7 @@ public class BallMovement : MonoBehaviour
         {
             yDirection = .25f;
         }
-        rb.velocity = new Vector2(xDirection, yDirection) * (initialSpeed + (speedIncrease * hitCounter));
+        rb.linearVelocity = new Vector2(xDirection, yDirection) * (initialSpeed + (speedIncrease * hitCounter));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
