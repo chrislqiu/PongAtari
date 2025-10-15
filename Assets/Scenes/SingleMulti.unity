@@ -365,7 +365,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1871269430}
+      - m_Target: {fileID: 668401441}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: StartSinglePlayer
         m_Mode: 1
@@ -799,6 +799,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &668401440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 668401442}
+  - component: {fileID: 668401441}
+  m_Layer: 0
+  m_Name: MenuManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &668401441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668401440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed30e9d2de54747fcbecc3a93c642112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuManager
+  targetCanvas: {fileID: 1836972228}
+  sceneChanger: {fileID: 984385438}
+  sceneDelay: 0.5
+--- !u!4 &668401442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668401440}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1108.9883, y: 723.39844, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &975108554
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,6 +983,17 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &984385438 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6064996616187628829, guid: aacd94932fe204aa6bfc65eade6cbfee, type: 3}
+  m_PrefabInstance: {fileID: 1319312009}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb2b67bf3cd4e44fba174c7e28041455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &994141486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1464,7 +1522,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1871269430}
+      - m_Target: {fileID: 668401441}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: StartMultiplayer
         m_Mode: 1
@@ -1665,7 +1723,6 @@ GameObject:
   - component: {fileID: 1836972227}
   - component: {fileID: 1836972226}
   - component: {fileID: 1836972225}
-  - component: {fileID: 1836972230}
   m_Layer: 5
   m_Name: MenuCanvas
   m_TagString: Untagged
@@ -1764,21 +1821,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1836972230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1836972224}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac0cbd087d56c424b956084df7779b45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MenuOptionHover
-  TargetCanvas: {fileID: 1836972228}
-  MenuPanel: {fileID: 2080343343}
-  panelDelay: 1
 --- !u!1 &1846133089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1816,50 +1858,6 @@ RectTransform:
   m_AnchoredPosition: {x: -150, y: 400}
   m_SizeDelta: {x: 300, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1871269429
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1871269431}
-  - component: {fileID: 1871269430}
-  m_Layer: 0
-  m_Name: MenuManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1871269430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1871269429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ac2b26c4fb51b0429f17677f4cdad15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MenuManager
---- !u!4 &1871269431
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1871269429}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1031.4368, y: 491.55316, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1922701598
 GameObject:
   m_ObjectHideFlags: 0
@@ -2243,12 +2241,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2080343343}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac0cbd087d56c424b956084df7779b45, type: 3}
+  m_Script: {fileID: 11500000, guid: ed30e9d2de54747fcbecc3a93c642112, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MenuOptionHover
-  TargetCanvas: {fileID: 1836972228}
-  MenuPanel: {fileID: 2080343343}
-  panelDelay: 1
+  m_EditorClassIdentifier: '::'
+  targetCanvas: {fileID: 1836972228}
+  sceneChanger: {fileID: 984385438}
+  sceneDelay: 0.5
 --- !u!1 &2095603191
 GameObject:
   m_ObjectHideFlags: 0
@@ -2397,4 +2395,4 @@ SceneRoots:
   - {fileID: 994141487}
   - {fileID: 2000346613}
   - {fileID: 92409059}
-  - {fileID: 1871269431}
+  - {fileID: 668401442}
