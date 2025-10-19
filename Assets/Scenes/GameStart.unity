@@ -2002,7 +2002,7 @@ GameObject:
   - component: {fileID: 1885498879}
   m_Layer: 0
   m_Name: Basic Background
-  m_TagString: Untagged
+  m_TagString: Basic Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
