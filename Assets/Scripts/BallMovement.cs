@@ -13,13 +13,22 @@ public class BallMovement : MonoBehaviour
     [SerializeField] private TMP_Text winText;
     [SerializeField] private GameObject winPanel;
 
+    [Header("Audio Clips")]
+    [SerializeField] private AudioClip paddleHitSound;
+    [SerializeField] private AudioClip wallHitSound;
+    [SerializeField] private AudioClip scoreSound;
+    [SerializeField] private AudioClip winSound;
+    [SerializeField] private AudioClip gameOverSound;
+
     private int hitCounter;
     private Rigidbody2D rb;
+    private AudioSource audioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
         Invoke("StartBall", 2f);
     }
 
@@ -67,19 +76,26 @@ public class BallMovement : MonoBehaviour
             yDirection = .25f;
         }
         rb.linearVelocity = new Vector2(xDirection, yDirection) * (initialSpeed + (speedIncrease * hitCounter));
+
+        PlaySound(paddleHitSound);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "P1 Racket" || collision.gameObject.name == "P2Score Racket")
+        if (collision.gameObject.name == "P1 Racket" || collision.gameObject.name == "P2 Racket")
         {
             PlayerBounce(collision.transform);
+        }
+        else if (collision.gameObject.CompareTag("Basic Background"))
+        {
+            PlaySound(wallHitSound);
         }
     }
 
     //updates the score
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        PlaySound(scoreSound);
         if (transform.position.x > 0)
         {
             resetBall();
@@ -112,6 +128,24 @@ public class BallMovement : MonoBehaviour
         winPanel.SetActive(true);
         winText.gameObject.SetActive(true); // Show the message
 
+        // Determine which sound to play
+        bool isPlayer1Win = msg.Contains("Player 1");
+        bool isPlayer2Win = msg.Contains("Player 2");
+
+        if (GameManager.Instance.isAI)
+        {
+            // In singleplayer: AI = Player 2
+            if (isPlayer2Win)
+                PlaySound(gameOverSound);
+            else
+                PlaySound(winSound);
+        }
+        else
+        {
+            // In multiplayer: always play win sound
+            PlaySound(winSound);
+        }
+
         StartCoroutine(ReturnToMainMenu());
     }
 
@@ -119,6 +153,12 @@ public class BallMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("Main Menu");
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (clip != null && audioSource != null)
+            audioSource.PlayOneShot(clip);
     }
 
 }
